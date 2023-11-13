@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'KSPlayer-mysangle'
-    s.version          = '1.1.3'
+    s.version          = '1.1.5'
     s.summary          = 'Video Player Using Swift, based on AVPlayer,FFmpeg'
 
     s.description      = <<-DESC
@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
     s.license          = 'MIT'
     s.source           = { :git => 'https://github.com/mysangle/KSPlayer-mysangle.git', :tag => s.version.to_s }
 
-    s.swift_version = "5.1"
+    s.swift_version = "5.7"
     s.ios.deployment_target = '13.0'
     s.static_framework = true
     s.subspec 'Subtitle' do |ss|
