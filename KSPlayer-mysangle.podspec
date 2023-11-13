@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'KSPlayer-mysangle'
-    s.version          = '1.1.1'
+    s.version          = '1.1.3'
     s.summary          = 'Video Player Using Swift, based on AVPlayer,FFmpeg'
 
     s.description      = <<-DESC

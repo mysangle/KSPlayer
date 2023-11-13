@@ -1,4 +1,4 @@
-@testable import KSPlayer
+@testable import KSPlayer_mysangle
 import XCTest
 class KSMEPlayerTest: XCTestCase {
     func testPlaying() {
