@@ -1,5 +1,5 @@
 import AVFoundation
-@testable import KSPlayer
+@testable import KSPlayer_mysangle
 import XCTest
 class AudioTest: XCTestCase {
     func testChannelLayout() {
