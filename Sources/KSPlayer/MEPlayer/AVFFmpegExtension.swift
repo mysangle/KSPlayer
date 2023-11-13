@@ -1,5 +1,5 @@
 import CoreMedia
-import FFmpegKit
+import FFmpegKit_mysangle
 import Libavcodec
 import Libavfilter
 import Libavformat

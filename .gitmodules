@@ -1,4 +1,3 @@
-[submodule "FFmpegKit"]
-	path = FFmpegKit
-	url = https://github.com/kingslay/FFmpegKit
-	branch = main
+[submodule "FFmpegKit-mysangle"]
+	path = FFmpegKit-mysangle
+	url = https://mysangle@github.com/mysangle/FFmpegKit-mysangle.git

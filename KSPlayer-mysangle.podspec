@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
     s.license          = 'MIT'
     s.source           = { :git => 'https://github.com/mysangle/KSPlayer-mysangle.git', :tag => s.version.to_s }
 
+    s.swift_version = "5.1"
     s.ios.deployment_target = '13.0'
     s.static_framework = true
     s.subspec 'Subtitle' do |ss|
@@ -30,8 +31,6 @@ Pod::Spec.new do |s|
         ss.source_files = 'Sources/KSPlayer/AVPlayer/*.{swift}'
         ss.frameworks = 'AVFoundation'
         ss.ios.frameworks  = 'UIKit'
-        ss.tvos.frameworks  = 'UIKit'
-        ss.osx.frameworks  = 'AppKit'
     end
     #ffmpeg播放内核
     s.subspec 'MEPlayer' do |ss|
