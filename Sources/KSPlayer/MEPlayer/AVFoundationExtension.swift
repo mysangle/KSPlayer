@@ -7,7 +7,7 @@
 
 import AVFoundation
 import CoreMedia
-import FFmpegKit
+import FFmpegKit_mysangle
 import Libavutil
 
 extension OSType {

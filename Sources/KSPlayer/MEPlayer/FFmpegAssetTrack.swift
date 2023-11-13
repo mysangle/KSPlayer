@@ -6,7 +6,7 @@
 //
 
 import AVFoundation
-import FFmpegKit
+import FFmpegKit_mysangle
 import Libavformat
 public class FFmpegAssetTrack: MediaPlayerTrack {
     public private(set) var trackID: Int32 = 0
