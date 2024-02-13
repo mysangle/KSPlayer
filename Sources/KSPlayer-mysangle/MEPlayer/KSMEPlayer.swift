@@ -14,8 +14,6 @@ import AppKit
 #endif
 
 public class KSMEPlayer: NSObject {
-    static let EXTERNAL_CLOCK_MIN_FRAMES: Int = 4
-    static let EXTERNAL_CLOCK_MAX_FRAMES: Int = 12
     static let EXTERNAL_CLOCK_OVER_MAX_FRAMES: Int = 45
     static let EXTERNAL_CLOCK_SPEED_STEP: Float = 0.001
     
@@ -81,6 +79,8 @@ public class KSMEPlayer: NSObject {
     public private(set) var isReadyToPlay = false
     public var allowsExternalPlayback: Bool = false
     public var usesExternalPlaybackWhileExternalScreenIsActive: Bool = false
+    private var externalClockMinFrames: Int = 4
+    private var externalClockMaxFrames: Int = 24
 
     public var playbackRate: Float = 1 {
         didSet {
@@ -128,6 +128,8 @@ public class KSMEPlayer: NSObject {
             videoOutput = KSOptions.videoPlayerType.init(options: options)
         }
         self.options = options
+        externalClockMaxFrames = options.externalClockMaxFrames
+        externalClockMinFrames = options.externalClockMinFrames
         super.init()
         playerItem.delegate = self
         audioOutput.renderSource = playerItem
@@ -292,11 +294,11 @@ extension KSMEPlayer: MEPlayerDelegate {
     }
 
     func sourceDidLoaded(frameCount: Int) {
-        if frameCount < KSMEPlayer.EXTERNAL_CLOCK_MIN_FRAMES {
+        if frameCount < externalClockMinFrames {
             playbackRate = max(KSMEPlayer.PLAYBACK_SPEED_MIN, playbackRate - KSMEPlayer.EXTERNAL_CLOCK_SPEED_STEP)
         } else if frameCount > KSMEPlayer.EXTERNAL_CLOCK_OVER_MAX_FRAMES {
             playbackRate = min(KSMEPlayer.PLAYBACK_SPEED_OVER_MAX, playbackRate + KSMEPlayer.PLAYBACK_SPEED_OVER_MAX_STEP)
-        } else if frameCount > KSMEPlayer.EXTERNAL_CLOCK_MAX_FRAMES {
+        } else if frameCount > externalClockMaxFrames {
             playbackRate = min(KSMEPlayer.PLAYBACK_SPEED_MAX, playbackRate + KSMEPlayer.EXTERNAL_CLOCK_SPEED_STEP)
         } else {
             let rate = playbackRate
