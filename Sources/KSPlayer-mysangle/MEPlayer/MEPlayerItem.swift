@@ -798,6 +798,7 @@ extension MEPlayerItem: OutputRenderSourceDelegate {
                 } while packet != nil
             }
         }
+        delegate?.sourceDidLoaded(frameCount: videoTrack.frameCount)
         return frame
     }
 

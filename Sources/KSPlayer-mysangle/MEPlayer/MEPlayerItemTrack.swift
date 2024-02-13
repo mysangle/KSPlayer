@@ -57,7 +57,7 @@ class SyncPlayerItemTrack<Frame: MEFrame>: PlayerItemTrackProtocol, CustomString
         if mediaType == .audio {
             outputRenderQueue = CircularBuffer(initialCapacity: Int(frameCapacity), expanding: false)
         } else if mediaType == .video {
-            outputRenderQueue = CircularBuffer(initialCapacity: Int(frameCapacity), sorted: true, expanding: false)
+            outputRenderQueue = CircularBuffer(initialCapacity: Int(frameCapacity), sorted: true, expanding: true)
         } else {
             outputRenderQueue = CircularBuffer(initialCapacity: Int(frameCapacity))
         }
